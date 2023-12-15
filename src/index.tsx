@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './vitals';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 
-ReactDOM.render(
+import "./index.css";
+
+const domNode = document.getElementById("root") as HTMLElement;
+const root = createRoot(domNode);
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
-
-reportWebVitals(sendToVercelAnalytics);
