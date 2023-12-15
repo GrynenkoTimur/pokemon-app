@@ -1,6 +1,6 @@
-import { useGetPokemonTypesQuery } from "../../app/pokemonApi";
-import { Autocomplete, TextField } from "@mui/material";
 import { Dispatch, FC, SetStateAction } from "react";
+import { Autocomplete, Skeleton, TextField } from "@mui/material";
+import { useGetPokemonTypesQuery } from "../../app/pokemonApi";
 
 interface ITypeSelect {
   type: string | null;
@@ -13,11 +13,11 @@ export const TypeSelect: FC<ITypeSelect> = ({ type, setType }) => {
   let content = <div></div>;
 
   if (isLoading) {
-    content = <div>Loading</div>;
+    content = <Skeleton variant="rounded" width={300} height={40} />;
   }
 
   if (error) {
-    content = <div>Error</div>;
+    content = <div>Oooops something went wrong while requesting types</div>;
   }
 
   if (data) {

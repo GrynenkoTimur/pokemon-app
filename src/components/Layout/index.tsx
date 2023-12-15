@@ -1,5 +1,5 @@
-import { AppBar, Container } from "@mui/material";
 import { FC } from "react";
+import { AppBar, Container } from "@mui/material";
 import { Title } from "../Title";
 
 interface ILayoutProps {

@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { ArrowForward } from "@mui/icons-material";
 import {
   Box,
@@ -8,12 +11,12 @@ import {
   Pagination,
   TextField,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+
 import {
   useGetPokemonsQuery,
   useLazyGetPokemonTypeByIdQuery,
 } from "../app/pokemonApi";
+
 import { Loader, PokemonCard, Title, TypeSelect } from "../components";
 
 const limit = 12;
@@ -82,7 +85,7 @@ export const PokemonList = () => {
       <>
         <Grid container spacing={2}>
           {results.map(({ name }) => (
-            <Grid item xs={3} key={name}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={name}>
               <PokemonCard name={name} />
             </Grid>
           ))}
@@ -109,7 +112,7 @@ export const PokemonList = () => {
       <>
         <Grid container spacing={2}>
           {pokemon.map(({ pokemon: { name } }) => (
-            <Grid item xs={3} key={name}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={name}>
               <PokemonCard name={name} />
             </Grid>
           ))}
@@ -148,7 +151,7 @@ export const PokemonList = () => {
         />
       </Box>
 
-      <Box display="flex" justifyContent="flex-end">
+      <Box display="flex" justifyContent="flex-end" mt="10px">
         <TypeSelect type={type} setType={setType} />
       </Box>
       <Box m="10px 0">

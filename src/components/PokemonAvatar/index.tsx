@@ -1,6 +1,6 @@
-import { getColorByPokemonType } from "../../utils/getColorByPokemonType";
 import { Avatar } from "@mui/material";
 import styled from "styled-components";
+import { getColorByPokemonType } from "../../utils/getColorByPokemonType";
 
 interface IAvatarProps {
   type: string;
